@@ -68,11 +68,14 @@ iface = gr.Interface(
     title="AI Doctor with Vision and Voice"
 )
 
-iface.launch(debug=True)
 
 # ✅ Make it work on Render
+import os
+
+# DEBUG PRINT to confirm port being used
+print("✅ Launching Gradio on host=0.0.0.0, port:", os.environ.get("PORT", 8080))
+
 iface.launch(
-    debug=True,
     server_name="0.0.0.0",
-    server_port=int(os.environ.get("PORT", 7860))
+    server_port=int(os.environ.get("PORT", 8080))
 )
